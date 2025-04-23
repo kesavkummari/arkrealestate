@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ARK Realestate - Redirecting</title>
+  <meta name="description" content="ARK Realestate - Admin Area">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <script>
+    // Check if user is logged in
+    function redirectToDashboard() {
+      try {
+        // Try to get user data from localStorage
+        const userData = localStorage.getItem('ark_user');
+        
+        if (userData) {
+          // Parse user data to verify it's valid
+          const user = JSON.parse(userData);
+          
+          // Make sure we have at least basic user properties
+          if (user && user.id && user.email) {
+            console.log('User authenticated, redirecting to dashboard');
+            window.location.replace('./dashboard.html');
+          } else {
+            // Invalid user data, redirect to login
+            const baseUrl = window.location.pathname.substring(0, window.location.pathname.indexOf('/admin'));
+            console.log('Invalid user data, redirecting to login');
+            window.location.replace(`${baseUrl}/login.html`);
+          }
+        } else {
+          // No user data, redirect to login
+          const baseUrl = window.location.pathname.substring(0, window.location.pathname.indexOf('/admin'));
+          console.log('No user data found, redirecting to login');
+          window.location.replace(`${baseUrl}/login.html`);
+        }
+      } catch (error) {
+        console.error('Error during redirect:', error);
+        // In case of error, redirect to login as fallback
+        const baseUrl = window.location.pathname.substring(0, window.location.pathname.indexOf('/admin'));
+        window.location.replace(`${baseUrl}/login.html`);
+      }
+    }
+
+    // Execute redirect when the page loads
+    window.onload = redirectToDashboard;
+  </script>
+</head>
+<body>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; font-family: Arial, sans-serif;">
+    <div>
+      <h2>Redirecting...</h2>
+      <p>If you are not redirected automatically, <a href="./dashboard.html">click here</a>.</p>
+    </div>
+  </div>
+</body>
+</html> 

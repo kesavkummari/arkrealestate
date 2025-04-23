@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check LocalStorage - ARK Realestate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .storage-container {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .json {
+            white-space: pre-wrap;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button.danger {
+            background-color: #e74c3c;
+        }
+        button.danger:hover {
+            background-color: #c0392b;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>ARK Realestate - LocalStorage Checker</h1>
+    
+    <div class="content-section">
+        <h2>Current User</h2>
+        <div class="storage-container">
+            <div id="currentUser" class="json">Loading...</div>
+        </div>
+        
+        <h2>All Users</h2>
+        <div class="storage-container">
+            <div id="allUsers" class="json">Loading...</div>
+        </div>
+        
+        <h2>Favorites</h2>
+        <div class="storage-container">
+            <div id="favorites" class="json">Loading...</div>
+        </div>
+        
+        <h2>Properties</h2>
+        <div class="storage-container">
+            <div id="properties" class="json">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="actions">
+        <button id="refreshBtn">Refresh Data</button>
+        <button id="logoutBtn" class="danger">Logout Current User</button>
+        <button id="clearAllBtn" class="danger">Clear All Data</button>
+    </div>
+    
+    <a href="index.html" class="back-link">← Back to Homepage</a>
+    
+    <script src="check-storage.js"></script>
+</body>
+</html> 
